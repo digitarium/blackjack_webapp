@@ -8,6 +8,10 @@ get '/' do
   erb :set_name
 end
 
+get '/write_text' do
+  "#{params}"
+end
+
 post '/set_name' do
   session[:player_name] = params[:player_name]
   redirect '/game'
@@ -23,3 +27,10 @@ end
 get '/simple_route' do
   erb :simple_route
 end
+
+get '/set_name/' do
+  "Hello"
+  # "Hello #{params[:name]}!"
+end
+
+
