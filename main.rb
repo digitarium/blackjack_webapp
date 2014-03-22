@@ -5,32 +5,17 @@ require 'pry'
 set :sessions, true
 
 get '/' do
-  erb :set_name
+  if session[:player_name]
+    "#{session[:player_name]}"
+  else
+    redirect '/new_player'
+  end
 end
 
-get '/write_text' do
-  "#{params}"
+get '/new_player' do
+  erb :new_game
 end
 
-post '/set_name' do
+post '/new_player' do
   session[:player_name] = params[:player_name]
-  redirect '/game'
 end
-
-get '/game' do
-  session[:deck] = [['2', 'H'], ['3', 'D']]
-  session[:player_cards] = []
-  session[:player_cards] << session[:deck].pop
-  erb :game
-end
-
-get '/simple_route' do
-  erb :simple_route
-end
-
-get '/set_name/' do
-  "Hello"
-  # "Hello #{params[:name]}!"
-end
-
-
