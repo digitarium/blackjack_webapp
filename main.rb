@@ -6,7 +6,26 @@ set :sessions, true
 
 helpers do
   def calculate_total(cards)
-    arr = cards.map{|element| element[1]}
+    arr = cards.map{|element| element[1] }
+
+    total = 0
+    arr.each do |a|
+      if a == "A"
+        total += 11
+      else
+        total += a.to_i == 0 ? 10 : a.to_i
+      end
+    end
+
+    # correct for Aces
+    arr.select{|element| element == "A"}.count.times do
+      break if total <= 21
+      total  -= 10
+    end
+
+    total
+  end
+end
 
 get '/' do
   if session[:player_name]
