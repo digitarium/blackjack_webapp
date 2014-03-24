@@ -6,7 +6,7 @@ set :sessions, true
 
 get '/' do
   if session[:player_name]
-    "#{session[:player_name]}"
+    redirect '/game'
   else
     redirect '/new_player'
   end
@@ -17,5 +17,14 @@ get '/new_player' do
 end
 
 post '/new_player' do
-  session[:player_name] = params[:player_name]
+  if params[:player_name]
+
+    session[:player_name] = params[:player_name]
+  # progress to the game
+end
+
+get '/game' do
+  # set up initial game values
+
+  erb :new_game
 end
