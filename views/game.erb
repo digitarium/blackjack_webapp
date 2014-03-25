@@ -22,3 +22,10 @@ Player's cards:
   What would you like to do?
   <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
 </p>
+
+<form id="hit" action="/game/player/hit" method="POST">
+  <input type="submit" value="Hit" class="btn btn-large btn-warning">
+</form>
+<form id="stay" action="/game/player/stay" method="POST">
+  <input type="submit" value="Stay" class="btn btn-success btn-large">
+</form>
