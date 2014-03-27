@@ -2,7 +2,13 @@
 
 <p>Welcome <%= session[:player_name] %>.</p>
 
-
+<% if @play_again %>
+<p>
+  <strong>Play again?</strong>
+  <a href="/game" class="btn btn-primary">Yes</a>
+  <a href="/game_over" class="btn btn-default">No</a>
+</p>
+<% end %>
 
 <div class="well">
   <h4>Dealer's cards:</h4>
@@ -22,7 +28,7 @@
 <br>
 
 <div class="well">
-  <h4>Player's cards:</h4>
+  <h4><%= "#{session[:player_name]}" %>'s cards:</h4>
   <% session[:player_cards].each do |card| %>
     <%= card_image(card) %>
   <% end %>
