@@ -1,3 +1,4 @@
+<div id='game'>
 <h1>Blackjack!</h1>
 
 <p>Welcome <%= session[:player_name] %>.</p>
@@ -14,7 +15,7 @@
   <h4>Dealer's cards:</h4>
   <% session[:dealer_cards].each_with_index do |card, i| %>
     <% if session[:turn] != "dealer" && i == 0 %>
-      <img src="/images/cards/cover.jpg"
+      <img src="/images/cards/cover.jpg" class="card_image">
     <% else %>
       <%= card_image(card) %>
     <% end %>
@@ -31,7 +32,8 @@
 
 <br>
 
-<div class="well">
+<div class="well" id='player_area'>
+  <a id='player_color' href='#'>Change it to Yellow</a>
   <h4><%= "#{session[:player_name]}" %>'s cards:</h4>
   <% session[:player_cards].each do |card| %>
     <%= card_image(card) %>
@@ -51,3 +53,4 @@
     <input type="submit" value="Stay" class="btn btn-warning">
   </form>
 <% end %>
+</div>

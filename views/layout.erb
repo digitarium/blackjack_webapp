@@ -4,14 +4,15 @@
     <meta charset="utf-8">
     <title>My First App</title>
     <link rel="stylesheet" href="/vendor/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's Javascript Plugins) -->
+    <script src="/vendor/bower_components/jquery/dist/jquery.min.js"></script>
     <link rel="stylesheet" href="/application.css">
+    <script src="/application.js"></script>
   </head>
 
   <body style="padding-top: 50px;">
-    <!-- jQuery (necessary for Bootstrap's Javascript Plugins) -->
-    <script src="/vendor/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
+    <script src="/vendor/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!--<div class="navbar navbar-fixed-top">-->
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
@@ -24,10 +25,14 @@
 
     <div class="container">
       <%if @error %>
+      <p>
         <div class="alert alert-danger"><%=@error%></div>
+      </p>
       <%end %>
       <%if @success %>
+      <p>
         <div class="alert alert-success"><%=@success%></div>
+      </p>
       <% end %>
         <%= yield %>
     </div>
