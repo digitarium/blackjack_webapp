@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $('#hit input').click(function() {
+    $(document).on('click', '#hit input', function() {
         $.ajax({
             type: 'POST',
             url: '/game/player/hit'
@@ -9,4 +9,4 @@ $(document).ready(function() {
       return false;
     });
 
-});
+ });
