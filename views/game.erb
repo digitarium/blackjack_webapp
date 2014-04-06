@@ -33,7 +33,6 @@
 <br>
 
 <div class="well" id='player_area'>
-  <a id='player_color' href='#'>Change it to Yellow</a>
   <h4><%= "#{session[:player_name]}" %>'s cards:</h4>
   <% session[:player_cards].each do |card| %>
     <%= card_image(card) %>
