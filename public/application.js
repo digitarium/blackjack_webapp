@@ -6,7 +6,16 @@ $(document).ready(function() {
         }).done(function(msg) {
             $('#game').replaceWith(msg);
         });
-      return false;
+        return false;
     });
 
+    $(document).on('click', '#stay input', function() {
+        $.ajax({
+            type: 'POST',
+            url: '/game/player/stay'
+        }).done(function(msg) {
+            $('game').replaceWith(msg);
+        });
+        return false;
+    });
  });
