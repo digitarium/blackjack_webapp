@@ -142,7 +142,7 @@ post '/game/player/hit' do
   elsif player_total > BLACKJACK_AMOUNT
     loser!("It looks like #{session[:player_name]} busted at #{player_total}.")
   end
-  erb :game, layout: false
+  erb :game
 end
 
 post '/game/player/stay' do
