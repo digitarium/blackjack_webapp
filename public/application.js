@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    playerHits();
-    playerStays();
+    // playerHits();
+    // playerStays();
 });
 
 function player_hits() {
