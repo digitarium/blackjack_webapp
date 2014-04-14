@@ -6,5 +6,6 @@
 4. ctrl+c to stop the server
 
 
+## Playing the game
 
 You can play the game at http://darturium-blackjack.herokuapp.com
