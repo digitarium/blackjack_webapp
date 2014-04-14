@@ -1,13 +1,27 @@
 $(document).ready(function() {
-    // playerHits();
-    // playerStays();
+    playerHits();
+    playerStays();
+    dealerHits();
 });
 
-function player_hits() {
-    $(document).on('click', '#hit input', function() {
+function playerHits() {
+    $(document).on('click', 'form#hit input', function() {
         $.ajax({
             type: 'POST',
             url: '/game/player/hit'
+        }).done(function(msg) {
+            $('div#game').replaceWith(msg);
+        });
+
+        return false;
+    });
+}
+
+function playerStays() {
+    $(document).on('click', '#stay input', function() {
+        $.ajax({
+            type: 'POST',
+            url: '/game/player/stay'
         }).done(function(msg) {
             $('#game').replaceWith(msg);
         });
@@ -16,11 +30,11 @@ function player_hits() {
     });
 }
 
-function player_stays() {
-    $(document).on('click', '#stay input', function() {
+function dealerHits() {
+    $(document).on('click', 'form#dealer_hit input', function() {
         $.ajax({
             type: 'POST',
-            url: '/game/player/stay'
+            url: '/game/dealer/hit'
         }).done(function(msg) {
             $('#game').replaceWith(msg);
         });
