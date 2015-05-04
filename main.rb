@@ -2,7 +2,8 @@ require 'rubygems'
 require 'sinatra'
 require 'pry'
 
-set :sessions, true
+#set :sessions, true
+use Rack::Session::Pool, :expire_after => 2592000
 
 BLACKJACK_AMOUNT = 21
 DEALER_MIN_HIT = 17
