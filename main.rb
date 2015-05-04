@@ -2,8 +2,7 @@ require 'rubygems'
 require 'sinatra'
 require 'pry'
 
-#set :sessions, true
-enable:sessions
+set :sessions, true
 
 BLACKJACK_AMOUNT = 21
 DEALER_MIN_HIT = 17
